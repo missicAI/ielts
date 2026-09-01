@@ -1,2 +1,5 @@
-UPLOAD TẤT CẢ 6 FILE HTML/JS/CSS TRONG GÓI NÀY VÀO ROOT REPO missicAI/ielts, GHI ĐÈ FILE CŨ.
-Bản v4: chấm đúng/sai không tự lộ đáp án; Reading khôi phục Gợi ý + Giải thích chi tiết đáp án dạng thu/phóng; Passage 1 câu 8 = traffic theo bản gốc.
+IELTS UPDATE V6 - ORIGINAL STYLE
+
+Upload TOAN BO cac file trong goi nay vao root repo missicAI/ielts va ghi de file cu.
+Ban nay lam lai Lesson 1 Challenge 1 theo anh goc: loi giai tung cau, dich nghia, phan tich, bang doan thong tin/paraphrase, highlight va giai thich chi tiet.
+Sau khi GitHub Pages deploy xong, bam Ctrl+F5 mot lan.
