@@ -130,6 +130,8 @@
 .vocab-entry-table th,.vocab-entry-table td{border:1px solid #7b7b7b;padding:7px;vertical-align:top}
 .vocab-entry-table th{background:#f1f1f1;text-align:center;font-weight:800}
 .vocab-entry-table td input{width:100%;border:1px solid #cbd5e1;border-radius:4px;padding:5px;background:#fff}
+.vocab-entry-table td input.field-correct{border:2px solid #19935f;background:#eaf8f0;color:#0d6b45;font-weight:800}
+.vocab-entry-table td input.field-wrong{border:2px solid #e13a43;background:#fff0f0;color:#b4232a;font-weight:800}
 .vocab-entry-table td:first-child{min-width:245px}
 .vocab-entry-table .sentence{font-style:italic}
 @media(max-width:760px){.keyword-match-row{grid-template-columns:1fr}.vocab-entry-table{min-width:760px}.vocab-entry-wrap{overflow-x:auto}}
