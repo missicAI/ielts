@@ -1,0 +1,7 @@
+Upload 4 files trong thu muc nay vao repo missicAI/ielts:
+1) index.html (chon Replace/ghi de neu GitHub hoi)
+2) lesson-1-challenge-1.html
+3) lesson-1-challenge-2.html
+4) lesson-2-challenge-1.html
+
+Khong can tao thu muc lessons nua.
