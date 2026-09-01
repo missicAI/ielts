@@ -125,6 +125,11 @@
 .transcript-inline:not([open]) summary::after{content:' ▼';float:right}
 .transcript-inline .collapse-body{padding:10px;background:#fff}
 .transcript-inline .source-gallery{gap:8px}
+.transcript-copy{font:16px/1.55 Georgia,'Times New Roman',serif;color:#111;background:#fff;border:1px solid #e2e4e8;border-radius:6px;padding:12px 14px}
+.transcript-copy h4{margin:0 0 12px;font:bold 17px/1.3 Georgia,'Times New Roman',serif}
+.transcript-copy p{margin:6px 0}
+.transcript-copy mark{background:#ffe39a;padding:0 2px}
+.transcript-copy strong{font-weight:800}
 .keyword-match-grid{display:grid;gap:8px;margin:10px 0 14px}
 .keyword-match-grid h5{grid-column:1/-1;margin:10px 0 0;color:#d91616;font:700 17px Georgia,'Times New Roman',serif}
 .keyword-match-row{display:grid;grid-template-columns:minmax(210px,.9fr) minmax(260px,1.25fr);gap:10px;align-items:center;border:1px solid #e1e5eb;border-radius:8px;background:#f4f4f4;padding:8px 10px}
