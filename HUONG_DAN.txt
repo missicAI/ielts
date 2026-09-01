@@ -1,0 +1,3 @@
+Upload 6 file nay vao root repo missicAI/ielts va ghi de file cu.
+Sau khi GitHub Pages deploy xong, mo lai trang hoc.
+Ban nay them ?v=2 vao app.js/styles.css de trinh duyet bat buoc tai ban moi, tranh cache cu.
