@@ -91,3 +91,50 @@
 .ev-yellow{background:#ffe88f;color:inherit;padding:0 1px}.answer-yellow{background:#ffe475;color:#111;padding:1px 3px}
 .solution-detail{padding-bottom:10px}
 @media(max-width:850px){.original-top-actions{display:none}.solution-question-card{min-width:650px}.original-explanation .collapse-body{overflow-x:auto}.solution-compare-grid{grid-template-columns:1fr 1fr}}
+
+/* V7 - image-backed lessons preserve the supplied LangGo captures while keeping
+   the two work areas independently scrollable. */
+.image-source,.image-work{font-family:"Times New Roman",Times,serif;color:#151515}
+.image-gallery{display:grid;gap:14px}
+.image-gallery img{display:block;width:100%;height:auto;border:1px solid #e3e6ea;border-radius:4px;background:#fff}
+.image-gallery .shot-caption{font:700 12px/1.3 Arial,Helvetica,sans-serif;color:#64748b;margin:-8px 0 0}
+.reference-note{background:#fff9e8;border:1px solid #f1cf8b;border-radius:8px;padding:10px 12px;margin:10px 0;font:14px/1.55 Arial,Helvetica,sans-serif}
+.reference-note strong{color:#8a5400}
+.source-gallery{display:grid;gap:12px}
+.source-gallery figure{margin:0}
+.source-gallery figcaption{font:700 12px/1.3 Arial,Helvetica,sans-serif;color:#64748b;margin:4px 0 0}
+.submission-card{border:1px solid #e1e5eb;border-radius:8px;padding:14px;background:#fff}
+.submission-card h3{margin:0 0 8px;font:700 18px/1.3 Arial,Helvetica,sans-serif}
+.submission-card textarea{width:100%;min-height:88px;border:1.5px solid #15915b;border-radius:7px;padding:10px;color:#168a57;resize:vertical;background:#fff}
+.submission-card textarea:focus{outline:3px solid rgba(21,145,91,.14)}
+.submission-card .counter{text-align:right;color:#7b8491;font:12px Arial,Helvetica,sans-serif;margin-top:3px}
+.link-button{display:inline-flex;align-items:center;gap:6px;background:#fff3df;color:#e66f00;border:1px solid #f0b463;border-radius:6px;padding:7px 11px;font-weight:800;text-decoration:none}
+.lesson-heading{font-size:clamp(25px,2.4vw,38px)!important}
+.audio-track{border:1px solid #e2e6eb;border-radius:10px;background:#fbfcfd;padding:12px;margin:12px 0}
+.audio-track strong{display:block;font:700 16px Arial,Helvetica,sans-serif;margin-bottom:5px}
+.audio-track audio{width:100%}
+.transcript-gallery{display:grid;gap:12px}
+.transcript-gallery img{width:100%;height:auto;border:1px solid #e3e6ea;border-radius:4px}
+.exercise-block{border-bottom:1px solid #e5e7eb;padding:0 0 22px;margin:0 0 22px}
+.exercise-block:last-child{border-bottom:0;margin-bottom:0}
+.exercise-block h3{font:700 18px/1.3 "Times New Roman",Times,serif;margin:2px 0 10px}
+.exercise-block p{font:17px/1.6 "Times New Roman",Times,serif;margin:7px 0}
+.answer-input{width:100%;max-width:310px;border:1px solid #b9c3cf;border-radius:5px;padding:6px 8px}
+.answer-input.field-correct,.answer-input.field-wrong{max-width:310px}
+.answer-row{display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:start;margin:10px 0}
+.answer-row .answer-input{margin-top:-2px}
+.answer-row .answer-prompt{font-size:16px;line-height:1.5}
+.word-bank-inline{display:flex;flex-wrap:wrap;gap:7px;border:1px solid #d8dde5;border-radius:6px;padding:9px;margin:10px 0;background:#fafbfc}
+.word-bank-inline span{background:#fff;border:1px solid #cfd6df;border-radius:4px;padding:4px 8px;font-size:14px}
+.original-gallery{display:grid;gap:12px}
+.original-gallery img{width:100%;height:auto;border:1px solid #d9dee5;border-radius:4px}
+.original-gallery .gallery-label{font:700 12px Arial,Helvetica,sans-serif;color:#6b7280;margin:-5px 0 0}
+.split-shot{position:relative;overflow:hidden;width:100%;background:#fff;border:1px solid #e3e6ea;border-radius:4px}
+.split-shot img{position:absolute;left:0;top:0;display:block;width:200%;max-width:none;height:auto;border:0;border-radius:0}
+.split-shot.right img{left:-100%}
+.split-shot figcaption{font:700 12px/1.3 Arial,Helvetica,sans-serif;color:#64748b;margin:4px 0 0}
+.image-work details{font-family:Arial,Helvetica,sans-serif}
+.image-work .collapse summary{font-family:Arial,Helvetica,sans-serif}
+.compact-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+.compact-form-grid .answer-row{grid-template-columns:28px minmax(0,1fr)}
+@media(max-width:760px){.compact-form-grid{grid-template-columns:1fr}.submission-card textarea{min-height:105px}.image-gallery img,.original-gallery img{border-radius:2px}}
