@@ -113,6 +113,10 @@
 .audio-track{border:1px solid #e2e6eb;border-radius:10px;background:#fbfcfd;padding:12px;margin:12px 0}
 .audio-track strong{display:block;font:700 16px Arial,Helvetica,sans-serif;margin-bottom:5px}
 .audio-track audio{width:100%}
+.legacy-listening .audio-track{border:0;background:transparent;padding:0;margin:14px 0 8px}
+.legacy-listening .audio-track strong{font:700 16px/1.4 Georgia,'Times New Roman',serif}
+.legacy-listening .audio-track audio{display:block;width:300px;max-width:100%;margin:18px auto 14px}
+.legacy-listening .transcript-inline{margin:0 0 20px}
 .transcript-inline{margin:-4px 0 16px;border:0;border-radius:7px;overflow:hidden}
 .transcript-inline summary{list-style:none;cursor:pointer;background:#ef2228;color:#fff;font:700 16px/1.3 Arial,Helvetica,sans-serif;padding:8px 12px}
 .transcript-inline summary::-webkit-details-marker{display:none}
