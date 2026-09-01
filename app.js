@@ -166,4 +166,16 @@
     const sync=()=>{if(target) target.textContent=`Số từ: ${norm(field.value).split(/\s+/).filter(Boolean).length}`};
     field.addEventListener('input',sync); sync();
   });
+
+  // Split source screenshots show only the left/right half of a full-width
+  // capture. Match the wrapper height to the image's natural dimensions so
+  // every transcript remains visible even when source screenshots differ in
+  // height.
+  document.querySelectorAll('.split-shot img').forEach(img=>{
+    const sync=()=>{
+      if(!img.naturalWidth || !img.naturalHeight) return;
+      img.parentElement.style.aspectRatio=`${img.naturalWidth/2} / ${img.naturalHeight}`;
+    };
+    if(img.complete) sync(); else img.addEventListener('load',sync);
+  });
 })();
