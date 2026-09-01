@@ -169,3 +169,31 @@
 .compact-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
 .compact-form-grid .answer-row{grid-template-columns:28px minmax(0,1fr)}
 @media(max-width:760px){.compact-form-grid{grid-template-columns:1fr}.submission-card textarea{min-height:105px}.image-gallery img,.original-gallery img{border-radius:2px}}
+
+/* V10 - text-first Reading reconstruction for Bài 5.  The supplied captures
+   are references only; the lesson is rendered as readable, selectable HTML. */
+.reading-source h4{font-family:"Times New Roman",Times,serif;font-size:18px;margin:8px 0 12px}
+.reading-source .reading-passage-card h3{letter-spacing:.1px}
+.reading-work .flow-title{font:700 16px/1.35 "Times New Roman",Times,serif;text-align:center;border:1px solid #7d8792;background:#fafafa;padding:10px 12px;margin:10px 0 14px}
+.reading-work .wordbank{font:700 14px/1.35 "Times New Roman",Times,serif;grid-template-columns:repeat(3,1fr);background:#fafafa;border-radius:6px;overflow:hidden}
+.reading-work .wordbank span{background:#fff}
+.reading-question{border:1px solid #e1e5eb;border-radius:8px;background:#fff;padding:5px 10px 0;margin:10px 0 14px}
+.reading-question .answer-row{margin:7px 0 8px}
+.reading-question .answer-prompt{font-size:17px}
+.reading-question .answer-input{font-family:"Times New Roman",Times,serif;font-size:17px}
+.reading-question .original-explanation{margin:7px 0 0!important}
+.reading-question .original-explanation .collapse-body{padding:8px 4px 2px!important}
+.reading-question .solution-question-card{margin:0 0 8px;padding:9px 8px 0}
+.reading-question .solution-question-card p{font-family:Arial,Helvetica,sans-serif}
+.reading-source .reference-note{margin-top:16px}
+.chart-data-card{margin:14px 0;padding:11px 12px;border:1px solid #ead7ac;border-radius:8px;background:#fffaf0}
+.chart-data-card>p{margin:4px 0 9px;font:15px/1.5 "Times New Roman",Times,serif}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font:14px/1.35 "Times New Roman",Times,serif;background:#fff}
+.data-table th,.data-table td{border:1px solid #c9c1ae;padding:6px 8px;text-align:center}
+.data-table th{background:#f8edcf;font-weight:800}
+@media(max-width:760px){.reading-work .wordbank{grid-template-columns:repeat(2,1fr)}.reading-question .answer-prompt{font-size:16px}.reading-question .solution-question-card{min-width:0}}
+
+/* External answer key for exercises whose source has no written solutions. */
+.answer-key-collapse{border-color:#f1cf8b}
+.answer-key-collapse>summary{background:#ffe7ad!important;color:#5a3b00!important;border:1px solid #ffd88a;font-family:Arial,Helvetica,sans-serif}
+.answer-key-collapse .collapse-body{background:#fffaf0}
