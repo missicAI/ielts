@@ -1,0 +1,2 @@
+UPLOAD TẤT CẢ 6 FILE HTML/JS/CSS TRONG GÓI NÀY VÀO ROOT REPO missicAI/ielts, GHI ĐÈ FILE CŨ.
+Bản v4: chấm đúng/sai không tự lộ đáp án; Reading khôi phục Gợi ý + Giải thích chi tiết đáp án dạng thu/phóng; Passage 1 câu 8 = traffic theo bản gốc.

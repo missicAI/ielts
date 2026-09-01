@@ -1,4 +1,8 @@
 (function(){
+  function norm(value){
+    return String(value ?? '').trim().toLowerCase().replace(/\s+/g,' ');
+  }
+
   function setResultStyle(result, score, total, unit){
     if(!result) return;
     result.textContent=`Đúng ${score}/${total} ${unit}`;
@@ -23,37 +27,18 @@
     if(btn) btn.addEventListener('click',()=>{
       clearRadioFeedback(form);
       let score=0;
-
       Object.entries(answers).forEach(([name,ans])=>{
         const radios=Array.from(form.querySelectorAll(`input[name="${name}"]`));
         const picked=radios.find(r=>r.checked) || null;
-        const correct=radios.find(r=>r.value===ans) || null;
-
-        if(picked && picked.value===ans){
+        if(!picked) return;
+        const option=picked.closest('.option');
+        if(picked.value===ans){
           score++;
-          const option=picked.closest('.option');
-          if(option){
-            option.classList.add('answer-correct');
-            if(option.dataset) option.dataset.feedback='✓ Đúng';
-          }
+          if(option){ option.classList.add('answer-correct'); option.dataset.feedback='✓ Đúng'; }
         }else{
-          if(picked){
-            const pickedOption=picked.closest('.option');
-            if(pickedOption){
-              pickedOption.classList.add('answer-wrong');
-              if(pickedOption.dataset) pickedOption.dataset.feedback='✕ Sai';
-            }
-          }
-          if(correct){
-            const correctOption=correct.closest('.option');
-            if(correctOption){
-              correctOption.classList.add('answer-correct');
-              if(correctOption.dataset) correctOption.dataset.feedback='✓ Đáp án đúng';
-            }
-          }
+          if(option){ option.classList.add('answer-wrong'); option.dataset.feedback='✕ Sai'; }
         }
       });
-
       setResultStyle(result,score,Object.keys(answers).length,'câu');
     });
 
@@ -71,38 +56,83 @@
   if(gapForm){
     const ans={l1gap8:'reputation',l1gap9:'crime',l1gap10:'conclude',l1gap11:'impact',l1gap12:'influence',l1gap13:'industrial',l1gap14:'surround',l1gap15:'ranks',l1gap16:'reaction',l1gap17:'diverse',l1gap18:'locals',l1gap19:'lifestyle'};
     const r=document.getElementById('l1-ex2-result');
-    const clearGapFeedback=()=>{
-      gapForm.querySelectorAll('select').forEach(el=>{
-        el.classList.remove('answer-correct','answer-wrong');
-        if(el.dataset) delete el.dataset.correctAnswer;
-        if('title' in el) el.title='';
-      });
-    };
-
-    gapForm.querySelector('[data-check]').addEventListener('click',()=>{
-      clearGapFeedback();
-      let s=0;
+    const clear=()=>gapForm.querySelectorAll('select').forEach(el=>el.classList.remove('answer-correct','answer-wrong'));
+    const check=gapForm.querySelector('[data-check]');
+    const reset=gapForm.querySelector('[data-reset]');
+    if(check) check.addEventListener('click',()=>{
+      clear(); let s=0;
       Object.entries(ans).forEach(([n,a])=>{
-        const el=gapForm.querySelector(`[name="${n}"]`);
-        if(!el) return;
-        if(el.value===a){
-          s++;
-          el.classList.add('answer-correct');
-        }else{
-          el.classList.add('answer-wrong');
-          if(el.dataset) el.dataset.correctAnswer=a;
-          if('title' in el) el.title=`Đáp án đúng: ${a}`;
-        }
+        const el=gapForm.querySelector(`[name="${n}"]`); if(!el) return;
+        if(el.value===a){ s++; el.classList.add('answer-correct'); }
+        else if(el.value){ el.classList.add('answer-wrong'); }
       });
       setResultStyle(r,s,Object.keys(ans).length,'ô');
     });
+    if(reset) reset.addEventListener('click',()=>{ gapForm.reset(); clear(); if(r){r.textContent='';r.className='result';} });
+  }
 
-    gapForm.querySelector('[data-reset]').addEventListener('click',()=>{
-      gapForm.reset();
-      clearGapFeedback();
-      if(r){ r.textContent=''; r.className='result'; }
+  function ensureMark(input){
+    let mark=input.nextElementSibling;
+    if(!mark || !mark.classList.contains('field-feedback')){
+      mark=document.createElement('span');
+      mark.className='field-feedback';
+      input.insertAdjacentElement('afterend',mark);
+    }
+    return mark;
+  }
+
+  function clearTextFeedback(form){
+    form.querySelectorAll('[data-answer]').forEach(input=>{
+      input.classList.remove('field-correct','field-wrong');
+      const mark=input.nextElementSibling;
+      if(mark && mark.classList.contains('field-feedback')) mark.remove();
     });
   }
+
+  function scoreTextForm(form){
+    const inputs=Array.from(form.querySelectorAll('[data-answer]'));
+    const result=form.querySelector('[data-reading-result]');
+    clearTextFeedback(form);
+    let score=0;
+    inputs.forEach(input=>{
+      const accepted=(input.dataset.answer||'').split('|').map(norm).filter(Boolean);
+      const value=norm(input.value);
+      if(!value) return;
+      const ok=accepted.includes(value);
+      const mark=ensureMark(input);
+      if(ok){
+        score++;
+        input.classList.add('field-correct');
+        mark.textContent='✓ Đúng';
+        mark.classList.add('is-correct');
+      }else{
+        input.classList.add('field-wrong');
+        mark.textContent='✕ Sai';
+        mark.classList.add('is-wrong');
+      }
+    });
+    setResultStyle(result,score,inputs.length,'câu');
+  }
+
+  document.querySelectorAll('form[data-reading-form]').forEach(form=>{
+    const check=form.querySelector('[data-check-reading]');
+    const reset=form.querySelector('[data-reset-reading]');
+    if(check) check.addEventListener('click',()=>scoreTextForm(form));
+    if(reset) reset.addEventListener('click',()=>{
+      form.reset(); clearTextFeedback(form);
+      const result=form.querySelector('[data-reading-result]');
+      if(result){result.textContent='';result.className='result';}
+    });
+  });
+
+  document.querySelectorAll('details.collapse').forEach(details=>{
+    const summary=details.querySelector(':scope > summary');
+    if(!summary) return;
+    const original=(summary.dataset.label || summary.textContent).replace(/[▼▲]\s*$/,'').trim();
+    summary.dataset.label=original;
+    const sync=()=>{ summary.textContent=original+(details.open?' ▲':' ▼'); };
+    details.addEventListener('toggle',sync); sync();
+  });
 
   const audio=document.getElementById('exercise1-audio'), picker=document.getElementById('audio-file-input'), status=document.getElementById('audio-status');
   if(audio&&picker){

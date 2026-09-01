@@ -32,3 +32,15 @@
 .result-perfect{background:#eaf8f0;border-color:#86d7ad;color:#0d6b45}
 .result-mixed{background:#fff1f1;border-color:#f1a3a7;color:#b4232a}
 @media(max-width:650px){.option.answer-correct,.option.answer-wrong{padding-right:12px}.option.answer-correct::after,.option.answer-wrong::after{position:static;display:block;transform:none;margin-top:3px}}
+
+
+/* v4: original-style grading + collapsible hints/solutions */
+.gap.field-correct,.wide-gap.field-correct,.vocab-row input.field-correct{border:2px solid #19935f!important;background:#eaf8f0!important;color:#0d6b45!important;font-weight:800;outline:0}
+.gap.field-wrong,.wide-gap.field-wrong,.vocab-row input.field-wrong{border:2px solid #e13a43!important;background:#fff0f0!important;color:#b4232a!important;font-weight:800;outline:0}
+.field-feedback{display:inline-block;margin-left:6px;font-size:12px;font-weight:900;vertical-align:middle;white-space:nowrap}.field-feedback.is-correct{color:#0d8a56}.field-feedback.is-wrong{color:#d21f2b}
+.solution-collapse summary{background:#ef2228}.hint-collapse summary{background:#e79b1a}.hint-collapse{border-color:#f1cf8b}.hint-collapse .collapse-body{background:#fffaf0}
+.solution-table{width:100%;border-collapse:collapse}.solution-table th,.solution-table td{border:1px solid #e0e4ea;padding:9px;vertical-align:top}.solution-table th{background:#f6f7f9;text-align:left}.solution-table .answer-value{color:#148a59;font-weight:900}
+.original-result-note{font-size:13px;color:#6b7280;margin:4px 0 10px}.task-card .action-row{margin-top:12px}
+.original-section-title{font-weight:900;margin:4px 0 8px;color:#17233a}.keyword-hint-list{margin:0;padding-left:20px}.keyword-hint-list li{margin:6px 0}
+.vocab-solution-grid{display:grid;grid-template-columns:1.35fr .75fr .45fr .8fr;border-left:1px solid #d9dee5;border-top:1px solid #d9dee5}.vocab-solution-grid>div{padding:8px;border-right:1px solid #d9dee5;border-bottom:1px solid #d9dee5}.vocab-solution-grid .head{font-weight:900;background:#f3f4f6}.vocab-solution-grid .group{grid-column:1/-1;background:#eef3f8;font-weight:900}.vocab-solution-grid .ans{color:#148a59;font-weight:800}
+@media(max-width:760px){.vocab-solution-grid{grid-template-columns:1fr}.vocab-solution-grid .head{display:none}.vocab-solution-grid .group{grid-column:auto}.field-feedback{display:block;margin:3px 0 0}}
