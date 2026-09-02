@@ -222,3 +222,4 @@
 .solutions-collapse>summary{background:#ffe2a4!important;color:#5c3c00!important;border:1px solid #f3c96d!important}
 blockquote{margin:14px 0;padding:12px 16px;border-left:4px solid #ef2228;background:#fff7f7;font-style:italic}
 @media(max-width:760px){.lesson-badge{display:none}.question-row{grid-template-columns:28px 1fr}.question-row input,.question-row select{grid-column:2}.map-text{grid-template-columns:1fr}.map-text strong{grid-column:auto}.solution-card dl{grid-template-columns:1fr}.solution-card dt{border-bottom:0}.chart-card{font-size:13px}}
+.content-figure{margin:22px auto;text-align:center}.content-graphic{display:block;max-width:100%;height:auto;margin:0 auto;border:1px solid #d9dee7;background:#fff}.content-figure figcaption{margin-top:8px;color:#687386;font-size:.88rem}.red-heading{color:#c81919}.steps-vietnamese li{margin-bottom:12px;line-height:1.55}
