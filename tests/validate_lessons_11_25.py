@@ -1,5 +1,8 @@
 from pathlib import Path
 from html import unescape
+from html.parser import HTMLParser
+import json
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,7 +50,10 @@ def test_all_pages_are_linked_and_reconstructed_as_html():
         assert title in html
         assert f"Bài số {number}" in html
         assert html.count('class="panel-body') >= 2
-        assert "<img" not in html.lower(), f"lesson {number} embeds a screenshot"
+        for tag in re.findall(r"<img\b[^>]*>", html, flags=re.I):
+            assert 'class="content-graphic"' in tag, f"lesson {number} embeds a whole-page screenshot instead of a content graphic"
+            src = re.search(r'src="([^"]+)"', tag, flags=re.I)
+            assert src and src.group(1).startswith("assets/"), f"lesson {number} has an invalid content graphic"
         assert filename in index
 
 
@@ -79,6 +85,8 @@ def test_reading_pages_have_detailed_solution_structure():
         for label in required:
             assert label in html, f"lesson {number} missing {label}"
         assert "<mark>" in html
+        main_answers = html.count('data-main-answer="true"') or html.count("data-answer=")
+        assert html.count('class="solution-card"') >= main_answers, f"lesson {number} has a main answer without a detailed solution"
 
 
 def test_every_page_exposes_an_answer_or_reference_key():
@@ -96,6 +104,48 @@ def test_shared_interaction_rules_are_preserved():
     assert "mark.textContent='✕ Sai'" in js
     assert "input.dataset.answer" in js
     assert "mark.textContent=input.dataset.answer" not in js
+
+
+class _VisibleText(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+
+    def handle_data(self, data):
+        self.parts.append(data)
+
+
+def test_capture_manifest_coverage():
+    manifest = json.loads((ROOT / "tests/lesson_11_25_manifest.json").read_text(encoding="utf-8"))
+    for lesson, spec in manifest.items():
+        capture_dir = ROOT / "work/new_extract2" / f"bài số {lesson}"
+        captures = list(capture_dir.glob("*.png")) + list(capture_dir.glob("*.jpg")) + list(capture_dir.glob("*.jpeg"))
+        assert len(captures) == spec["captures"], f"lesson {lesson}: source capture count changed"
+        html = (ROOT / spec["page"]).read_text(encoding="utf-8")
+        parser = _VisibleText()
+        parser.feed(html)
+        words = re.findall(r"\b[\w'-]+\b", " ".join(parser.parts))
+        assert len(words) >= spec["min_words"], f"lesson {lesson}: only {len(words)} visible words; expected >= {spec['min_words']}"
+        if "answer_fields" in spec:
+            assert html.count("data-answer=") >= spec["answer_fields"], f"lesson {lesson}: missing answer fields"
+        if "solution_cards" in spec:
+            assert html.count('class="solution-card"') >= spec["solution_cards"], f"lesson {lesson}: missing detailed solutions"
+        if "exercises" in spec:
+            for number in range(1, spec["exercises"] + 1):
+                assert f"Exercise {number}" in html, f"lesson {lesson}: missing Exercise {number}"
+        if "transcripts" in spec:
+            assert html.count("Xem transcript") >= spec["transcripts"], f"lesson {lesson}: missing transcripts"
+
+
+def test_local_media_references_exist():
+    for number in LESSONS:
+        html = read(number)
+        for attr in ("src", "href"):
+            for value in re.findall(fr'{attr}="([^"]+)"', html):
+                if value.startswith(("http://", "https://", "#")):
+                    continue
+                target = ROOT / value.split("?", 1)[0]
+                assert target.exists(), f"lesson {number}: missing local media {value}"
 
 
 if __name__ == "__main__":

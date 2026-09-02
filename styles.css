@@ -223,3 +223,43 @@
 blockquote{margin:14px 0;padding:12px 16px;border-left:4px solid #ef2228;background:#fff7f7;font-style:italic}
 @media(max-width:760px){.lesson-badge{display:none}.question-row{grid-template-columns:28px 1fr}.question-row input,.question-row select{grid-column:2}.map-text{grid-template-columns:1fr}.map-text strong{grid-column:auto}.solution-card dl{grid-template-columns:1fr}.solution-card dt{border-bottom:0}.chart-card{font-size:13px}}
 .content-figure{margin:22px auto;text-align:center}.content-graphic{display:block;max-width:100%;height:auto;margin:0 auto;border:1px solid #d9dee7;background:#fff}.content-figure figcaption{margin-top:8px;color:#687386;font-size:.88rem}.red-heading{color:#c81919}.steps-vietnamese li{margin-bottom:12px;line-height:1.55}
+
+/* V13 — exact text reconstruction and answer-state treatment. */
+.font-safe,.font-safe button,.font-safe input,.font-safe textarea,.font-safe table{font-family:Arial,"Noto Sans","Segoe UI",sans-serif}
+.font-safe .reading-passage-card h3{font-family:Georgia,"Noto Serif","Times New Roman",serif;text-align:center;font-size:22px}
+.font-safe .reading-passage-card p{font-family:Georgia,"Noto Serif","Times New Roman",serif;font-size:16px;line-height:1.72}
+.source-task-banner,.source-table-title{background:#cb0000;color:#fff;font-weight:800;padding:11px 13px;margin:0 0 14px}
+.source-task-banner{font-size:18px;border-radius:4px}.source-table-title{font-family:Georgia,"Noto Serif",serif;font-size:18px;margin-bottom:0}
+.dst-comparison{display:grid;grid-template-columns:1fr 1fr;border:1px solid #737373;margin:12px 0;background:#fff}
+.dst-comparison>section{padding:0 12px 12px}.dst-comparison>section+section{border-left:1px solid #737373}
+.dst-comparison h4{text-align:center;margin:0 -12px 12px;padding:9px;border-bottom:1px solid #737373;background:#f6f6f6}
+.dst-comparison p,.dst-question-row{font-family:Georgia,"Noto Serif",serif;font-size:15px;line-height:1.55;margin:11px 0}
+.dst-question-row{display:grid;grid-template-columns:25px 1fr;gap:5px}
+.source-answer-input{min-width:120px;max-width:100%;border:0;border-bottom:1.5px dotted #9ca3af;border-radius:0;padding:5px 7px;background:#f1f3f8;color:#172033;vertical-align:middle}
+.source-answer-input:focus{outline:2px solid rgba(20,138,89,.2);border-bottom-color:#148a59}
+.font-safe .source-answer-input.field-correct{border:2px solid #15915b;background:#eaf8f0;color:#0b7047;font-weight:800;border-radius:4px}
+.font-safe .source-answer-input.field-wrong{border:2px solid #e23b44;background:#fff0f1;color:#b51f29;font-weight:800;border-radius:4px}
+.headings-box,.notes-source-box{border:1px solid #cfd4da;background:#fbfbfb;padding:12px 16px;margin:12px 0}
+.headings-box h4{text-align:center;margin:0 0 9px}.headings-box ol{columns:2;column-gap:28px;margin:0;padding-left:34px}.headings-box li{break-inside:avoid;margin:6px 0}
+.note-completion-row{display:grid;grid-template-columns:30px 1fr;gap:6px;align-items:center;margin:10px 0;font-family:Georgia,"Noto Serif",serif}
+.table-caption{text-align:center;font-size:18px;margin:15px 0 8px}
+.reference-task{margin-top:24px;padding-top:2px;border-top:1px solid #e5e7eb}
+.source-table-wrap{width:100%;overflow-x:auto}
+.source-entry-table{width:100%;min-width:660px;border-collapse:collapse;background:#fff;font-size:14px;line-height:1.45}
+.source-entry-table th,.source-entry-table td{border:1px solid #747474;padding:9px 10px;text-align:left;vertical-align:middle}
+.source-entry-table thead th{background:#fff;text-align:center;font-weight:800}
+.source-entry-table .source-group-row th{background:#fff;color:#d41414;font-family:Georgia,"Noto Serif",serif;font-size:16px}
+.source-entry-table .source-answer-input{width:100%;min-width:130px}
+.keyword-source-table td:first-child{width:40%}.vocabulary-source-table td:first-child{width:45%}.vocabulary-source-table td:nth-child(2){width:20%}
+.vocab-highlight{background:#fff0a8;color:#e02a24;font-weight:800;padding:0 2px}
+.answer-reference{color:#14945f;font-weight:800}
+.font-safe .answer-key-collapse>summary{font-family:Arial,"Noto Sans","Segoe UI",sans-serif}
+.font-safe .solution-card,.font-safe .solution-card *{font-family:Arial,"Noto Sans","Segoe UI",sans-serif}
+.font-safe .external-reading{font-family:Arial,"Noto Sans","Segoe UI",sans-serif}
+.answer-key-content>p{color:#14945f;font-weight:700}.answer-key-content>p strong{color:#0f7a4c}
+.answer-key-content table{font-family:Arial,"Noto Sans","Segoe UI",sans-serif}
+.font-safe input[data-answer]{background:#f1f3f8;color:#172033}
+.font-safe input[data-answer].field-correct{border-color:#15915b;background:#eaf8f0;color:#0b7047;font-weight:800}
+.font-safe input[data-answer].field-wrong{border-color:#e23b44;background:#fff0f1;color:#b51f29;font-weight:800}
+.answer-key-collapse>.collapse-body>p,.answer-key-collapse>.collapse-body>ol{color:#14945f;font-weight:700}
+@media(max-width:760px){.dst-comparison{grid-template-columns:1fr}.dst-comparison>section+section{border-left:0;border-top:1px solid #737373}.headings-box ol{columns:1}.source-answer-input{min-width:105px}.source-entry-table{font-size:13px}}

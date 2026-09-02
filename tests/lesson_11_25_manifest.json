@@ -1,0 +1,17 @@
+{
+  "11": {"captures": 30, "page": "lesson-6-challenge-1.html", "answer_fields": 20, "solution_cards": 20, "min_words": 2600},
+  "12": {"captures": 1, "page": "lesson-6-challenge-2.html", "min_words": 110},
+  "13": {"captures": 9, "page": "lesson-7-challenge-1.html", "exercises": 4, "answer_fields": 18, "transcripts": 4, "min_words": 1700},
+  "14": {"captures": 1, "page": "lesson-7-challenge-2.html", "min_words": 140},
+  "15": {"captures": 1, "page": "lesson-8-challenge-2.html", "min_words": 105},
+  "16": {"captures": 30, "page": "lesson-8-challenge-1.html", "answer_fields": 14, "solution_cards": 14, "min_words": 2800},
+  "17": {"captures": 9, "page": "lesson-9-challenge-1.html", "exercises": 6, "answer_fields": 23, "transcripts": 5, "min_words": 1950},
+  "18": {"captures": 2, "page": "lesson-9-challenge-2.html", "min_words": 200},
+  "19": {"captures": 34, "page": "lesson-10-challenge-1.html", "answer_fields": 20, "solution_cards": 20, "min_words": 2500},
+  "20": {"captures": 1, "page": "lesson-10-challenge-2.html", "min_words": 135},
+  "21": {"captures": 6, "page": "break-2-challenge.html", "answer_fields": 34, "min_words": 1300},
+  "22": {"captures": 31, "page": "lesson-11-challenge-1.html", "answer_fields": 15, "solution_cards": 15, "min_words": 3000},
+  "23": {"captures": 1, "page": "lesson-11-challenge-2.html", "min_words": 105},
+  "24": {"captures": 11, "page": "lesson-12-challenge-1.html", "exercises": 5, "answer_fields": 30, "transcripts": 4, "min_words": 1500},
+  "25": {"captures": 2, "page": "lesson-12-challenge-2.html", "min_words": 150}
+}
